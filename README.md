@@ -32,13 +32,13 @@ Api uses a number of open source projects to work properly:
 
 Create a .env file and add the following variables in it 
    ```shell
-    PORT=8080
-    API_VERSION=/api/v1.0
-    ```
+   PORT=8080
+   API_VERSION=/api/v1.0
+   ```
 
-## Documentation (TODO)
+## Documentation
 
-You can find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
+You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
 
 [Database model](https://dbdesigner.page.link/chUDgevi7u5ryDRp8)
 
