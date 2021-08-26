@@ -2,11 +2,7 @@
 
 - The API provides users with the ability to register and book a table for an available date and time
 - It is possible to pre-order some dishes via the API
-- Payment is made offline at the restaurant so no API is required for it
-
-## Getting started (TODO)
-
-See [http://my-api.herokuapp.com/api/v1.0]('http://my-api.herokuapp.com/api/v1.0') 
+- Payment is made offline at the restaurant so no API is required for it 
 
 ## Tech
 
