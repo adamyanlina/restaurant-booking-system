@@ -36,7 +36,7 @@ Create a .env file and add the following variables in it
 
 You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
 
-[Database model](https://dbdesigner.page.link/chUDgevi7u5ryDRp8)
+The database model can be viewed at [dbdesigner.net](https://dbdesigner.page.link/chUDgevi7u5ryDRp8)
 
 ## License
 
