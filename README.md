@@ -13,6 +13,12 @@ Api uses a number of open source projects to work properly:
 - [Sequelize](https://sequelize.org/) - is a promise-based [Node.js](https://nodejs.org/en/about/) [ORM tool](https://en.wikipedia.org/wiki/Object-relational_mapping) for [Postgres](https://en.wikipedia.org/wiki/PostgreSQL), [MySQL](https://en.wikipedia.org/wiki/MySQL), [MariaDB](https://en.wikipedia.org/wiki/MariaDB), [SQLite](https://en.wikipedia.org/wiki/SQLite) and [Microsoft SQL Server](https://en.wikipedia.org/wiki/Microsoft_SQL_Server). It features solid transaction support, relations, eager and lazy loading, read replication and more.
 - [node-postgres](https://www.npmjs.com/package/pg) - non-blocking PostgreSQL client for Node.js. Pure JavaScript and optional native libpq bindings.
 
+## Requirement
+
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL-Server](https://www.postgresql.org/)
+- Text Editor or IDE
+
 ## Installation
 
 1. Clone the repo
