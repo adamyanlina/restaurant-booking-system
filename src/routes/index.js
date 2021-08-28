@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { combine } = require('../middlewares');
 
-const usersRoutes = require('./users');
+const userRoutes = require('./user');
 const authRoutes = require('./auth');
 const mainRoute = require('./main');
 
@@ -15,6 +15,6 @@ router.use(combine);
 
 router.use('/', mainRoute);
 router.use('/auth', authRoutes);
-router.use('/users', usersRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;
