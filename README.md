@@ -48,9 +48,13 @@ Run this command to create our new database
    ```sh
    npm run db:create
    ```
-Now this command and send over our models to Postgres. 
+Now this command and send over our models to Postgres
    ```sh
    npm run db:migrate
+   ```
+Run this command to transfer data to database
+   ```sh
+   npm run db:seeds
    ```
 
 ## Documentation
