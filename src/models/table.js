@@ -15,8 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     Table.init({
         number: DataTypes.INTEGER,
-        capacity: DataTypes.INTEGER,
-        status: DataTypes.STRING
+        capacity: DataTypes.INTEGER
     }, {
         sequelize,
         modelName: 'Table',

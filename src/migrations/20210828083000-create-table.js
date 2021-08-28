@@ -16,15 +16,6 @@ module.exports = {
                 defaultValue: 6,
                 allowNull: false,
             },
-            status: {
-                type: Sequelize.ENUM,
-                values: [
-                    'free',
-                    'booked'
-                ],
-                defaultValue: 'free',
-                allowNull: false,
-            },
             created_at: {
                 allowNull: false,
                 type: Sequelize.DATE
