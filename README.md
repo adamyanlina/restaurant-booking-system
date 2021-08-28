@@ -37,8 +37,17 @@ Create a .env file and add the following variables in it
    PORT=8080
    API_VERSION=/api/v1.0
    CLIENT_ID=572296194539-dlh6fu3dke3ok7lp0vl620kefi9j5s2f.apps.googleusercontent.com
+   NODE_ENV=development
+   DB_HOST=127.0.0.1
+   DB_NAME=restaurant-booking-system
+   DB_NAME_TEST=booking-system
+   DB_USERNAME=postgres
+   DB_PASSWORD=postgres
    ```
-
+Run this command to create our new database
+   ```sh
+   npm run db:create
+   ```
 ## Documentation
 
 You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
