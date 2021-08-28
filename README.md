@@ -45,10 +45,11 @@ Create a .env file and add the following variables in it
    DB_PASSWORD=postgres
    ```
 Run this command to create our new database
-1.   ```sh
+   ```sh
    npm run db:create
    ```
-2.   ```sh
+Now this command and send over our models to Postgres. 
+   ```sh
    npm run db:migrate
    ```
 
