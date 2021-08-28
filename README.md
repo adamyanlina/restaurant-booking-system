@@ -45,9 +45,13 @@ Create a .env file and add the following variables in it
    DB_PASSWORD=postgres
    ```
 Run this command to create our new database
-   ```sh
+1.   ```sh
    npm run db:create
    ```
+2.   ```sh
+   npm run db:migrate
+   ```
+
 ## Documentation
 
 You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
