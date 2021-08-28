@@ -30,6 +30,7 @@ Create a .env file and add the following variables in it
    ```shell
    PORT=8080
    API_VERSION=/api/v1.0
+   CLIENT_ID=572296194539-dlh6fu3dke3ok7lp0vl620kefi9j5s2f.apps.googleusercontent.com
    ```
 
 ## Documentation
