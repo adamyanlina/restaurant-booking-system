@@ -1,1 +1,2 @@
-exports.users = require('./users');
+exports.users = require('./user');
+exports.auth = require('./auth');

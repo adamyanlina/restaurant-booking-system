@@ -13,6 +13,12 @@ Api uses a number of open source projects to work properly:
 - [Sequelize](https://sequelize.org/) - is a promise-based [Node.js](https://nodejs.org/en/about/) [ORM tool](https://en.wikipedia.org/wiki/Object-relational_mapping) for [Postgres](https://en.wikipedia.org/wiki/PostgreSQL), [MySQL](https://en.wikipedia.org/wiki/MySQL), [MariaDB](https://en.wikipedia.org/wiki/MariaDB), [SQLite](https://en.wikipedia.org/wiki/SQLite) and [Microsoft SQL Server](https://en.wikipedia.org/wiki/Microsoft_SQL_Server). It features solid transaction support, relations, eager and lazy loading, read replication and more.
 - [node-postgres](https://www.npmjs.com/package/pg) - non-blocking PostgreSQL client for Node.js. Pure JavaScript and optional native libpq bindings.
 
+## Requirements
+
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL-Server](https://www.postgresql.org/)
+- Text Editor or IDE - For example, [WebStorm](https://www.jetbrains.com/webstorm/) or [VSCode](https://code.visualstudio.com/)
+
 ## Installation
 
 1. Clone the repo
@@ -30,6 +36,25 @@ Create a .env file and add the following variables in it
    ```shell
    PORT=8080
    API_VERSION=/api/v1.0
+   CLIENT_ID=572296194539-dlh6fu3dke3ok7lp0vl620kefi9j5s2f.apps.googleusercontent.com
+   NODE_ENV=development
+   DB_HOST=127.0.0.1
+   DB_NAME=restaurant-booking-system
+   DB_NAME_TEST=booking-system
+   DB_USERNAME=postgres
+   DB_PASSWORD=postgres
+   ```
+Run this command to create our new database
+   ```sh
+   npm run db:create
+   ```
+Now this command and send over our models to Postgres
+   ```sh
+   npm run db:migrate
+   ```
+Run this command to transfer data to database
+   ```sh
+   npm run db:seeds
    ```
 
 ## Documentation
