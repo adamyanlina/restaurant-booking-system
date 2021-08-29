@@ -1,15 +1,16 @@
 const { verifyToken } = require('../utils/verifyToken');
 
-exports.checkAuthentificate = async (req, res, next) => {
+module.exports = async (req, res, next) => {
     try {
         const token = req.cookies['session-token'];
         if (!token) throw new Error('Token was not provided');
 
         const payload = await verifyToken(token);
-        const { name, email, picture, sub } = payload;
+        const { given_name, family_name, email, picture, sub } = payload;
+        console.log('pay: ', payload);
 
         // Here user is temprorary variable to check
-        const user = { name, email, picture, sub }; // TODO: Subject to removal
+        const user = { given_name, family_name, email }; // TODO: Subject to removal
 
         // TODO: Find user by ID in POSTGRES Database (Sequelize)
         // const user = await User.findOne(sub).exec();

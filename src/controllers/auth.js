@@ -1,5 +1,8 @@
 const path = require('path');
 
+// const User = require('../models').user;
+const db = require('../models');
+
 const { verifyToken } = require('../utils/verifyToken');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
@@ -19,15 +22,29 @@ exports.signinPage = (req, res, next) => {
 exports.signin = async (req, res, next) => {
     try {
         const { token } = req.body;
-        if (!token) throw new Error('Token was not provided');
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
 
         const payload = await verifyToken(token);
-        const { name, email, picture, sub } = payload;
+        const { given_name, family_name, email, picture, sub } = payload;
 
-        // TODO: Insert user in POSTGRES Database (Sequelize)
+        const user = {
+            first_name: given_name,
+            last_name: family_name,
+            email
+        };
+
+        // Create User in the database
+        db.User.create(user)
+            .then((data) => {
+                console.log('Created: ', data);
+            })
+            .catch(console.error);
+
         res.cookie('session-token', token);
 
-        return res.status(202).send('Google User');
+        return res.status(202).json({ data: user });
     } catch (error) {
         next(error);
     }
