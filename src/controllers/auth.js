@@ -1,8 +1,5 @@
 const path = require('path');
 
-// const User = require('../models').user;
-const db = require('../models');
-
 const { verifyToken } = require('../utils/verifyToken');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
