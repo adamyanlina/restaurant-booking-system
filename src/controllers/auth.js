@@ -47,7 +47,7 @@ exports.signin = async (req, res, next) => {
 exports.signout = (req, res, next) => {
     try {
         res.clearCookie('session-token');
-        return res.redirect('signin', { message: 'Sign out!' });
+        return res.status(200).json({ message: 'Sign out!' });
     } catch (error) {
         next(error);
     }

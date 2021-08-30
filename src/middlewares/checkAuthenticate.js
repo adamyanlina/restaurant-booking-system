@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
     try {
         const token = req.cookies['session-token'];
         if (!token) throw new Error('Token was not provided');
+        console.log('token: ', token);
 
         const payload = await verifyToken(token);
         const { given_name, family_name, email, picture, sub } = payload;
@@ -23,6 +24,8 @@ module.exports = async (req, res, next) => {
         };
 
         const created = await db.User.findOrCreate({ where: user});
+
+        if (!created) throw new Error('Not authorized');
 
         req.user = created[0];
         return next();
