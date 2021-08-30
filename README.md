@@ -60,9 +60,32 @@ Run this command to transfer data to database
 Open [http://localhost:/5000/api/v1.0/auth/signin] and sign in with your Google account.
 Then copy the session-token from inspect and paste into postman cookies.
 
+Open Postman and send POST request
+[http://localhost:{{PORT}}{{API_VERSION}}/booking](http://localhost:{{PORT}}{{API_VERSION}}/booking)
+with body 
+   ```shell
+   {
+    "user_id": 6,
+    "table_id": 3,
+    "preorder_items": [
+        { 
+            "menu_item_id": 5,
+            "quantity": 2,
+            "comment": "Bring it first"
+        },
+        { 
+            "menu_item_id": 2,
+            "quantity": 1
+        }
+    ],
+    "start_date": "2021-08-30T06:46:19",
+    "end_date": "2021-08-30T23:00:00"
+}
+   ```
+
 ## Documentation
 
-You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
+You can find the documentation by following this [Postman link](https://documenter.getpostman.com/view/13495505/U16bwpBZ)
 
 The database model can be viewed at [dbdesigner.net](https://dbdesigner.page.link/chUDgevi7u5ryDRp8)
 
