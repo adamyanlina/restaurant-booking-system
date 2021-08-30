@@ -34,7 +34,7 @@ Api uses a number of open source projects to work properly:
 
 Create a .env file and add the following variables in it 
    ```shell
-   PORT=8080
+   PORT=5000
    API_VERSION=/api/v1.0
    CLIENT_ID=572296194539-dlh6fu3dke3ok7lp0vl620kefi9j5s2f.apps.googleusercontent.com
    NODE_ENV=development
@@ -56,6 +56,9 @@ Run this command to transfer data to database
    ```sh
    npm run db:seeds
    ```
+
+Open [http://localhost:/5000/api/v1.0/auth/signin] and sign in with your Google account.
+Then copy the session-token from inspect and paste into postman cookies.
 
 ## Documentation
 
