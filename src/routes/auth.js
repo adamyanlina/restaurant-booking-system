@@ -1,11 +1,10 @@
 const router = require('express').Router();
 
-const { signinPage, signin, signout } = require('../controllers/auth');
+const authenticate = require('../middlewares/checkAuthenticate');
+const { signinPage, signin, signout } = require('../controllers').auth;
 
 router.get('/signin', signinPage);
 router.post('/signin', signin);
-
-// TODO: Write 'authenticate' middleware
-router.post('/signout', signout);
+router.post('/signout', authenticate, signout);
 
 module.exports = router;
