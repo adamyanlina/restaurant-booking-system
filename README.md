@@ -85,7 +85,7 @@ with body
 
 ## Documentation
 
-You will be able to find the documentation by following this [Postman link](https://documenter.getpostman.com/view/#)
+You can find the documentation by following this [Postman link](https://documenter.getpostman.com/view/13495505/U16bwpBZ)
 
 The database model can be viewed at [dbdesigner.net](https://dbdesigner.page.link/chUDgevi7u5ryDRp8)
 
