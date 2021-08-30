@@ -21,6 +21,9 @@ module.exports = {
             phone: {
                 type: Sequelize.STRING
             },
+            picture: {
+                type: Sequelize.STRING
+            },
             created_at: {
                 allowNull: false,
                 type: Sequelize.DATE

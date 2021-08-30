@@ -7,7 +7,8 @@ module.exports = function (sequelize, DataTypes) {
         first_name: DataTypes.STRING,
         last_name: DataTypes.STRING,
         email: DataTypes.STRING,
-        phone: DataTypes.STRING
+        phone: DataTypes.STRING,
+        picture: DataTypes.STRING
     }, {
         sequelize,
         modelName: 'User',
