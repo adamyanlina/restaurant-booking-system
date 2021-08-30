@@ -2,11 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <meta name="google-signin-client_id" content="<%= clientID %>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
 </head>
 <body>
-    <h1>Profile</h1>
+    <div style="text-align: center; border: 1px dotted black;">
+        <h1 style="margin: 0; display: inline-block;">
+            User
+        </h1>
+        <form action="<%= apiVersion %>/auth/signout" method="POST">
+            <div style="float: right; padding: 10px 25px; border: none; background-color: #e7e7e7;">
+                <button type="submit" style="text-decoration: none; color: black;">
+                    Sign Out
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <h2><%= user.first_name %> <%= user.last_name %></h2>
+    <img src="<%= user.picture %>" alt="<%= user.first_name %>">
+    <script>
+        function signOut() {
+            const auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '<%= apiVersion %>/auth/signout');
+            });
+        }
+    
+        function onLoad() {
+          gapi.load('auth2', function() {
+            gapi.auth2.init();
+          });
+        }
+    </script>
 </body>
 </html>

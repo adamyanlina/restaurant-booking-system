@@ -19,15 +19,23 @@ exports.signinPage = (req, res, next) => {
 exports.signin = async (req, res, next) => {
     try {
         const { token } = req.body;
-        if (!token) throw new Error('Token was not provided');
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
 
         const payload = await verifyToken(token);
-        const { name, email, picture, sub } = payload;
+        const { given_name, family_name, email, picture, sub } = payload;
 
-        // TODO: Insert user in POSTGRES Database (Sequelize)
+        const user = {
+            first_name: given_name,
+            last_name: family_name,
+            email,
+            picture
+        };
+
         res.cookie('session-token', token);
 
-        return res.status(202).send('Google User');
+        return res.status(202).json({ user });
     } catch (error) {
         next(error);
     }
@@ -36,7 +44,7 @@ exports.signin = async (req, res, next) => {
 exports.signout = (req, res, next) => {
     try {
         res.clearCookie('session-token');
-        return res.redirect('signin', { message: 'Sign out!' });
+        return res.status(200).json({ message: 'Sign out!' });
     } catch (error) {
         next(error);
     }

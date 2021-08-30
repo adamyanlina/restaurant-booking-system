@@ -4,23 +4,18 @@ const Sequelize = require('sequelize');
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(path.resolve(__dirname, '/src/config/config.js'))[env];
+
+const config = require(`${__dirname}/../config/config.js`)[env];
+const db_url = `postgres://${config.username}:${config.password}@localhost:5432/${config.database}`;
+const sequelize = new Sequelize(db_url);
+
 const db = {};
 
-console.log('config: ', config);
-
-let sequelize;
-if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
 fs
-    .readdirSync(path.resolve(process.cwd(), 'src/models'))
+    .readdirSync(path.resolve(__dirname))
     .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
     .forEach((file) => {
-        const model = require(path.resolve(process.cwd(), 'src/models', file))(sequelize, Sequelize.DataTypes);
+        const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
         db[model.name] = model;
     });
 
