@@ -1,4 +1,11 @@
+const path = require('path');
+
+const db = require('../models');
 const { verifyToken } = require('../utils/verifyToken');
+
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+
+const apiVersion = process.env.API_VERSION;
 
 module.exports = async (req, res, next) => {
     try {
@@ -7,17 +14,20 @@ module.exports = async (req, res, next) => {
 
         const payload = await verifyToken(token);
         const { given_name, family_name, email, picture, sub } = payload;
-        console.log('pay: ', payload);
 
-        // Here user is temprorary variable to check
-        const user = { given_name, family_name, email }; // TODO: Subject to removal
+        const user = {
+            first_name: given_name,
+            last_name: family_name,
+            email,
+            picture
+        };
 
-        // TODO: Find user by ID in POSTGRES Database (Sequelize)
-        // const user = await User.findOne(sub).exec();
-        // if (!user) throw new Error('Not authorized');
-        req.user = user;
+        const created = await db.User.findOrCreate({ where: user});
+
+        req.user = created[0];
         return next();
     } catch (error) {
+        // res.redirect(`${apiVersion}/auth/signin`);
         next(error);
     }
 };

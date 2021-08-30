@@ -32,19 +32,13 @@ exports.signin = async (req, res, next) => {
         const user = {
             first_name: given_name,
             last_name: family_name,
-            email
+            email,
+            picture
         };
-
-        // Create User in the database
-        db.User.create(user)
-            .then((data) => {
-                console.log('Created: ', data);
-            })
-            .catch(console.error);
 
         res.cookie('session-token', token);
 
-        return res.status(202).json({ data: user });
+        return res.status(202).json({ user });
     } catch (error) {
         next(error);
     }
